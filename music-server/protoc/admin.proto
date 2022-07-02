@@ -1,0 +1,11 @@
+syntax = "proto3" ;
+
+import "google/protobuf/any.proto";
+
+package protoc;
+option go_package = "../protoc";
+
+message admin_login_req {
+   string name = 1;
+   string password = 2;
+}
