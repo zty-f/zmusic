@@ -6,7 +6,7 @@ func generateOne() {
 	dsn := "root:123456@tcp(127.0.0.1:3306)/music?charset=utf8&parseTime=true&loc=Local"
 
 	//生成指定单表
-	tblName := "admin"
+	tblName := "consumer"
 
 	gen.GenerateOne(gen.GenConf{
 		Dsn:       dsn,

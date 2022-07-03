@@ -1,0 +1,23 @@
+syntax = "proto3" ;
+
+package protoc;
+option go_package = "../protoc";
+
+message user_add_req {
+   // @gotags: form:"username"
+   string username = 1;
+   // @gotags: form:"password"
+   string password = 2;
+   // @gotags: form:"sex"
+   int32 sex = 3;
+   // @gotags: form:"phone_num"
+   string phone_num = 4;
+   // @gotags: form:"email"
+   string email = 5;
+   // @gotags: form:"birth"
+   string birth = 6;
+   // @gotags: form:"introduction"
+   string introduction = 7;
+   // @gotags: form:"location"
+   string location = 8;
+}

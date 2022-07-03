@@ -10,9 +10,11 @@ import (
 func InitRouter(r *gin.Engine) {
 
 	//不用拦截的接口组
-	apiRouter1 := r.Group("/admin")
+	adminApi := r.Group("/admin")
+	adminApi.POST("/login/status", controller.AdminLogin)
 
-	apiRouter1.POST("/login/status", controller.AdminLogin)
+	userApi := r.Group("/user")
+	userApi.POST("/add", controller.AddUser)
 
 }
 
