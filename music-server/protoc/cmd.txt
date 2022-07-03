@@ -1,0 +1,8 @@
+# 生成协议命令
+
+1. protoc --go_out=. common.proto
+2. protoc-go-inject-tag -input="consumer.pb.go"
+
+不同模块切换名字即可！也可以使用下面命令每次都全部生成！
+1. protoc --go_out=. *
+2. protoc-go-inject-tag -input="*"

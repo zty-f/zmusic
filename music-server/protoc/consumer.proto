@@ -26,3 +26,11 @@ message user_login_req{
    // @gotags: form:"password"
    string password =2;
 }
+
+message user_vo {
+   int32 id = 1;
+   string username = 2;
+   string phone_num = 4;
+   string email = 5;
+   string avatar = 9;
+}

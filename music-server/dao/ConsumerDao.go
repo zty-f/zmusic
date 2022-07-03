@@ -2,6 +2,7 @@ package dao
 
 import (
 	"time"
+	"zmusic/music-server/protoc"
 )
 
 type Consumer struct {
@@ -41,4 +42,22 @@ func (c *ConsumerDao) Add(user *Consumer) error {
 		return err
 	}
 	return nil
+}
+
+// QueryUserByNameAndPassword 通过用户名密码查找用户数
+func (c *ConsumerDao) QueryUserByNameAndPassword(userLoginReq *protoc.UserLoginReq) (int64, error) {
+	var count int64
+	if err := db.Table("consumers").Where("username = ? and password = ?", userLoginReq.Username, userLoginReq.Password).Count(&count).Error; err != nil {
+		return 0, err
+	}
+	return count, nil
+}
+
+// QueryUserByName 通过用户名密码查找用户数
+func (c *ConsumerDao) QueryUserByName(username string) (*Consumer, error) {
+	var user = &Consumer{}
+	if err := db.Where("username = ?", username).First(user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
 }

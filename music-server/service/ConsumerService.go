@@ -45,3 +45,23 @@ func (u *ConsumerService) DoAddUser(userAddReq *protoc.UserAddReq) (bool, error)
 	}
 	return true, nil
 }
+
+// DoUserLogin 用户登录
+func (u *ConsumerService) DoUserLogin(userLoginReq *protoc.UserLoginReq) (bool, error) {
+	count, err := consumerDaoInstance.QueryUserByNameAndPassword(userLoginReq)
+	if count == 0 || err != nil {
+		log.Printf("[%v]\n", err)
+		return false, err
+	}
+	return true, nil
+}
+
+// GetUserByUserName 根据用户名查找用户
+func (u *ConsumerService) GetUserByUserName(username string) (*dao.Consumer, error) {
+	user, err := consumerDaoInstance.QueryUserByName(username)
+	if err != nil {
+		log.Printf("[%v]\n", err)
+		return nil, err
+	}
+	return user, nil
+}

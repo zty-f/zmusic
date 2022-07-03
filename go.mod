@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/gin-contrib/sessions v0.0.5
 	github.com/gin-gonic/gin v1.8.1
+	github.com/golang/protobuf v1.5.0
 	github.com/qmhball/db2gorm v0.1.0
 	google.golang.org/protobuf v1.28.0
 	gorm.io/driver/mysql v1.3.4
