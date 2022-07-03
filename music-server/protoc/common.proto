@@ -1,7 +1,5 @@
 syntax = "proto3" ;
 
-import "google/protobuf/any.proto";
-
 package protoc;
 option go_package = "../protoc";
 
@@ -10,5 +8,4 @@ message response {
   string message = 2;
   bool success = 3;
   string type = 4;
-  google.protobuf.Any data = 5;
 }

@@ -1,8 +1,6 @@
 syntax = "proto3" ;
-
 package protoc;
 option go_package = "../protoc";
-
 message user_add_req {
    // @gotags: form:"username"
    string username = 1;
@@ -20,4 +18,11 @@ message user_add_req {
    string introduction = 7;
    // @gotags: form:"location"
    string location = 8;
+}
+
+message user_login_req{
+   // @gotags: form:"username"
+   string username = 1;
+   // @gotags: form:"password"
+   string password =2;
 }
