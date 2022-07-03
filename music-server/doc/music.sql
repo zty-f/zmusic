@@ -1,7 +1,7 @@
 -- 管理员表
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin`
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE `admins`
 (
     `id`       int(10) unsigned NOT NULL AUTO_INCREMENT,
     `name`     varchar(45)      NOT NULL,
@@ -12,18 +12,18 @@ CREATE TABLE `admin`
   AUTO_INCREMENT = 3
   DEFAULT CHARSET = utf8;
 
-INSERT INTO `admin`
+INSERT INTO `admins`
 VALUES (1, 'zty', '123456'),
        (2, 'fmj', '123456');
 
 # 用户表
-DROP TABLE IF EXISTS `consumer`;
-CREATE TABLE `consumer`
+DROP TABLE IF EXISTS `consumers`;
+CREATE TABLE `consumers`
 (
     `id`           int(10) unsigned NOT NULL AUTO_INCREMENT,
     `username`     varchar(255)     NOT NULL,
     `password`     varchar(100)     NOT NULL,
-    `sex`          tinyint(4)                DEFAULT NULL,
+    `sex`          tinyint(4)                DEFAULT NULL, # 0 女 1 男 2 未知
     `phone_num`    char(15)                  DEFAULT NULL,
     `email`        char(30)                  DEFAULT NULL,
     `birth`        datetime                  DEFAULT NULL,
