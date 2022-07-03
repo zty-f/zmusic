@@ -1,11 +1,11 @@
 syntax = "proto3" ;
 
-import "google/protobuf/any.proto";
-
 package protoc;
 option go_package = "../protoc";
 
 message admin_login_req {
+   // @gotags: form:"name"
    string name = 1;
+   // @gotags: form:"password"
    string password = 2;
 }

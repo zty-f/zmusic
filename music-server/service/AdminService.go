@@ -1,6 +1,9 @@
 package service
 
-import "zmusic/music-server/protoc"
+import (
+	"log"
+	"zmusic/music-server/protoc"
+)
 
 type AdminService struct {
 }
@@ -10,10 +13,11 @@ func NewAdminServiceInstance() *AdminService {
 }
 
 // DoLogin 登录
-func (u *AdminService) DoLogin(adminLoginReq *protoc.AdminLoginReq) (bool, error) {
+func (u *AdminService) DoLogin(adminLoginReq *protoc.AdminLoginReq) bool {
 	count, err := adminDaoInstance.QueryAdminByNameAndPassword(adminLoginReq)
 	if count == 0 || err != nil {
-		return false, err
+		log.Printf("[%v]\n", err)
+		return false
 	}
-	return true, nil
+	return true
 }
