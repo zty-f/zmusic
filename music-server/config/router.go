@@ -8,6 +8,7 @@ import (
 )
 
 func InitRouter(r *gin.Engine) {
+	r.Static("/", "./music-server/data")
 
 	//不用拦截的接口组
 	adminApi := r.Group("/admin")
