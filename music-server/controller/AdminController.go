@@ -25,7 +25,17 @@ func AdminLogin(c *gin.Context) {
 	}
 	fmt.Println("登录的管理员为：" + adminLoginReq.Name + ":" + adminLoginReq.Password)
 	//调用Service层
-	res := adminService.DoLogin(&adminLoginReq)
+	res, err := adminService.DoLogin(&adminLoginReq)
+	if err != nil {
+		c.JSON(http.StatusOK, protoc.Response{
+			Code:    500,
+			Message: err.Error(),
+			Success: false,
+			Type:    "error",
+			Data:    nil,
+		})
+		return
+	}
 	if res {
 		c.Set("name", adminLoginReq.Name)
 		c.JSON(http.StatusOK, protoc.Response{
@@ -44,6 +54,5 @@ func AdminLogin(c *gin.Context) {
 		Type:    "error",
 		Data:    nil,
 	})
-
 	return
 }

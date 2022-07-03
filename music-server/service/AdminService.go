@@ -13,11 +13,11 @@ func NewAdminServiceInstance() *AdminService {
 }
 
 // DoLogin 登录
-func (u *AdminService) DoLogin(adminLoginReq *protoc.AdminLoginReq) bool {
+func (u *AdminService) DoLogin(adminLoginReq *protoc.AdminLoginReq) (bool, error) {
 	count, err := adminDaoInstance.QueryAdminByNameAndPassword(adminLoginReq)
 	if count == 0 || err != nil {
 		log.Printf("[%v]\n", err)
-		return false
+		return false, err
 	}
-	return true
+	return true, nil
 }
