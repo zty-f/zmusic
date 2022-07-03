@@ -25,8 +25,8 @@ type AdminLoginReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name     string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Name     string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" form:"name"`
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty" form:"password"`
 }
 
 func (x *AdminLoginReq) Reset() {
